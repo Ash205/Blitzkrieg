@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S</title>
+    <style> body {padding: 0; margin: 0;} </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+ </head>
+  <body>
+   
+  
+
+
+
+<!-- <div class="words">
+
+</div> -->
+<h3 align="center">Speech Suite</h3><br><br>
+<div align="center">
+<textarea  style="text-align:center;" id="val" rows="20" cols="50"></textarea>
+<br><button id="start">I'm Speaking</button>
+</div>
+<script>
+
+  var SpeechRecognition = window.webkitSpeechRecognition;
+  var recognition = new SpeechRecognition();
+  recognition.interinResults = true;
+  /*let p = document.createElement('p'); 
+  const words = document.querySelector('.words');
+  words.appendChild(p); */
+  let val = '';
+
+  recognition.addEventListener('result', e => 
+  {
+  
+  const trns = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join(' ');
+  console.log(trns);
+  //p.textContent = trns;
+  val = val + '\r\n' + trns + ' ';
+  if(e.results[0].isFinal){
+    /*p = document.createElement('p');
+    words.append(p);*/
+    document.getElementById('val').value = val;
+  }; 
+});
+  recognition.addEventListener('end',recognition.start);
+  $('#start').on('click', function(){recognition.start()});
+  //recognition.start();
+
+</script>
+
+  </body>
+</html>

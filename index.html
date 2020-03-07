@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Intro to js</title>
+    </head>
+
+    <body style="text-align: center;">
+
+        <button onclick="myfunction();">Click me</button><br><hr>
+
+
+        <h3>Enter your name:</h3>
+        <input type="text" id="get">
+        <button onclick="myfunction();">Submit</button><br><br>
+        <p id="put"></p>
+        
+    </body>
+<script>
+   
+   function myfunction(){
+    var a = document.querySelector('#get').value;
+    document.querySelector('#put').innerText = "Hello " + a;
+}
+    
+
+</script>
+
+
+</html>

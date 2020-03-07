@@ -1,0 +1,38 @@
+<html>
+    <head><title>requests</title>
+    <meta charset="UTF-8"><title>Weather</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	</head>
+    <body>
+        <script>
+           
+        // var ret = new XMLHttpRequest();
+        // var para = {};
+        // para['rel_rhy'] = 'make';
+		// ret.open("GET", "https://api.datamuse.com/words", params=para); 
+		//  ret.send(null); 
+		
+		// var s; 
+        // s = JSON.parse(ret.response);
+        // console.log(s);
+
+
+
+
+        $(document).ready(function(){
+            $.ajax({
+			url: "https://api.datamuse.com/words",
+			dataType: "json",
+			type: "GET",
+			data: {'ml':'make'},
+			success: function(data){
+			    $.each(data, function(index, val){console.log(data['word']);})
+            }
+        })
+        })
+        </script>
+        
+    </body>
+</html>

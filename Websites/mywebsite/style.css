@@ -1,0 +1,45 @@
+body {
+	background-color: grey;
+	margin: left;
+}
+
+#content {
+	background-color: blue;
+	width: 700px;
+}
+
+#nav{
+	background-color: green;
+	width: 100px;
+	height: 150px;
+	float: left;
+	padding: 10px 0px 0px 10x;
+}
+
+#para{
+	background-color: white;
+	width: 580px;
+	height: 150px;
+	float: right;
+	padding: 10px 0px 0px 10px;
+}
+
+#header {
+	background-color: blue;
+	color: white;
+	text-align: center;
+	text-decoration: bold;
+	width: 700px;
+	height: 25px;
+	padding: 10px 50px 10px 50px;
+}
+
+#footer {
+	background-color: gray;
+	clear: both;
+	text-align: right.
+}
+
+#main {
+	width: 700px;
+}

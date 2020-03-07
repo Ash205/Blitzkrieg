@@ -1,0 +1,37 @@
+whois
+electoral
+waybackmachine
+intype filetype site: intitle inurl
+haveibeenpwned
+malrega
+virustotal   
+myactivity.google.com
+https://www.virustotal.com/#/domain/
+git clone https://github.com/aboul3ala/Sublist3r
+ cd .. 	dir 	ls	mkdir 	rmdir	chmod	touch	ls -li
+pip install -r requirements.txt
+python setup.py install
+-o output
+-h  --help
+sublist3r -d url
+hotelyouthink.com/ama/e8707b319c1853c5e6dd/
+dark web
+yopmail
+
+
+git clone https://github.com/thelinuxchoice/shellphish
+https://coactum.serveo.net 
+emkei's fake mailer
+id changer
+
+
+
+loader->burpsuite   proxy
+vit.crazybabydev.in
+coinhive.com
+sqlmap vulnerability
+oppodigital.in
+
+windows\system32>netsh wlan set hostednetwork mode=allow ssid=yourname key=password
+netsh swlan start hostednetwork
+shodan

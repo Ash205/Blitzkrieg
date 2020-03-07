@@ -1,0 +1,23 @@
+<html>
+    <head><title>Test</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    </head>
+    <body>
+        <button onclick="load()">Click me</button>
+        <script>
+            function load(){
+                var API_KEY = '15151126-aa0947b85bd5378813fb2324f';
+                var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('dog')+"&image_type=photo&pretty=true";
+                $.getJSON(URL, function(data){
+                    if (parseInt(data.totalHits) > 0){
+                        //$.each(data.hits, function(i, hit){ console.log(hit.largeImageURL); });
+                        console.log(data.hits[0].largeImageURL);
+                    }
+                    else
+                        console.log('No hits');
+                });
+            }
+        </script>
+    </body>
+</html>
