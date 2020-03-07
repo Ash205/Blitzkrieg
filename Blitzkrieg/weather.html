@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"><title>Weather</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+		
+		function f(){
+		var strin;
+		var loc;
+		var des;
+		var t;
+		strin = document.getElementById("textid").value;
+		
+		<!-- var weatheri = new XMLHttpRequest(); -->
+		<!-- weatheri.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=42887748873fe90166f5c7d3bea86697", false); -->
+		<!-- weatheri.send(null); -->
+		
+		<!-- var s; -->
+		<!-- s = JSON.parse(weatheri.response); -->
+		
+		$.ajax({
+			url: "http://api.openweathermap.org/data/2.5/weather",
+			dataType: "json",
+			type: "GET",
+			data: {q: strin, APPID: "42887748873fe90166f5c7d3bea86697", units: "metric"},
+			success: function(data){
+			
+			$.each(data.weather, function(index, val){
+			loc="City:&nbsp;"+data.name+"<br/>Latitude:&nbsp;"+data.coord.lon+"<br/>Longitude:&nbsp;"+data.coord.lat;
+			des=""+val.main+"<br/>Description:&nbsp;"+val.description;
+			t="Current:&nbsp;"+data.main.temp+"&deg;C<br/>"+"Max:&nbsp;"+data.main.temp_max+"<br/>Min:&nbsp;"+data.main.temp_max;
+		})
+		
+		document.getElementById("home").innerHTML = loc;
+		document.getElementById("profile").innerHTML = des;
+		document.getElementById("contact").innerHTML = t;
+		}
+		})
+		
+		
+		
+		
+		}
+	
+	
+	</script>
+
+</head>
+
+<body style="background-image: url('download.jpg');background-repeat: no-repeat;background-attachment: fixed;
+  background-size: cover;color:white;">
+
+	<div class = "container">
+	
+	<div class="py-5 text-center">
+		<h2>Know the Weather</h2>
+		<p class="lead">Enter the location and find instant results about weather</p>	
+		<br/><br>
+		<form class="form-inline"  style="text-align: center;">
+		Enter Location:&nbsp;
+		<input  id = "textid" class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+		<button onclick = "f()" class="btn btn-outline-light" type = "button"><i class="fa fa-search"></i></button>
+		</form>
+		<br/>
+		
+		
+		
+		
+<div class="card mb-8 shadow-sm">
+  <div class="card-header"> 
+    <ul class="nav nav-tabs card-header-tabs pull-right"  id="myTab" role="tablist">
+      <li class="nav-item">
+       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Location</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Weather</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Temperature</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+   <div class="tab-content" id="myTabContent">
+   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="color:black"></div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="color:black"></div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab" style="color:black"></div>
+        </div>
+  </div>
+</div>		
+
+
+	</div>
+	
+	
+	</div>
+	
+	
+
+</body>
+</html>
